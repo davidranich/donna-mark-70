@@ -4,8 +4,7 @@
 
     <span class="subtitle">70th Birthday Party</span>
 
-    <div class="max-w-4xl mx-auto p-8 flex flex-row sm:flex-col gap-2">
-         <!-- <img src="./../../assets/photos/IMG_4422.jpg" class="rounded shadow-xl"> -->
+    <div class="max-w-4xl w-full mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 flex flex-col gap-4 sm:gap-6">
           <PhotosCarousel />
     </div>
 
@@ -37,7 +36,7 @@
         <div>
             <card>
                 <template #body>
-                    <div class="max-w-4xl mx-auto p-8 flex flex-row sm:flex-col gap-2 justify-center items-center" id="rsvp-form">
+                    <div class="max-w-4xl mx-auto p-8 flex flex-row sm:flex-col gap-2 justxify-center itxems-center" id="rsvp-form">
                         <RsvpForm @submitted="formSubmitted = true" />
                     </div>
                 </template>
@@ -73,9 +72,6 @@ const formSubmitted = ref(false);
 </script>
 
 <style scoped>
-.leaflet-control-attribution {
-  display: none !important;
-}
 .logo {
     width: 350px;
     height: 350px;
@@ -91,13 +87,8 @@ const formSubmitted = ref(false);
 }
 
 .card {
-    padding: 15px;
+    paddixng: 15px;
     border-radius: 0.75em;
     background-color: #dadfe1;
-}
-
-hr {
-    margin: 0.75rem 0;
-    color: #000;
 }
 </style>

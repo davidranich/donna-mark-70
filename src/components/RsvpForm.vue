@@ -1,84 +1,57 @@
 <template>
-<div class="pxx-4 pxy-20">
-    <span class="title">Ready To Party?</span>
-    <div class="p-8">  
-        <form @submit.prevent="submitRSVP" class="space-y-6">
+    <div class="px-4 py-12 sm:px-6 lg:px-20">
+      <span class="title block text-center text-xl sm:text-2xl lg:text-3xl mb-6">Ready To Party?</span>
+  
+      <div class="p-6 bg-[#b1c29e] rounded-md shxadow-md">
+        <form @submit.prevent="submitRSVP" class="space-y-8">
           <div
             v-for="(guest, index) in guests"
             :key="index"
-            class=""
+            class="space-y-4"
           >
-            <div v-if="multipleGuests" class="mb-4">
-              <h3 class="text-lg font-semibold text-gray-700">Guest {{ index + 1 }}</h3>
+            <div v-if="multipleGuests" class="mb-2">
+              <h3 class="text-md sm:text-lg font-semibold text-gray-800">Guest {{ index + 1 }}</h3>
             </div>
   
-            <div class="">
-              <input
-                v-model="guest.first_name"
-                type="text"
-                placeholder="First Name"
-                required
-                class="input"
-              />
-              <input
-                v-model="guest.last_name"
-                type="text"
-                placeholder="Last Name"
-                required
-                class="input"
-              />
-              <input
-                v-model="guest.phone_number"
-                type="tel"
-                placeholder="Phone Number"
-                required
-                class="input"
-              />
-              <input
-                v-model="guest.email"
-                type="email"
-                placeholder="Email Address"
-                required
-                class="input"
-              />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <input v-model="guest.first_name" type="text" placeholder="First Name" required class="input" />
+              <input v-model="guest.last_name" type="text" placeholder="Last Name" required class="input" />
+              <input v-model="guest.phone_number" type="tel" placeholder="Phone Number" required class="input" />
+              <input v-model="guest.email" type="email" placeholder="Email Address" required class="input" />
             </div>
   
             <textarea
               v-model="guest.notes"
               placeholder="Notes (dietary restrictions, etc.)"
               rows="3"
-              class="input mt-4"
+              class="input"
             ></textarea>
   
-            <div class="text-right mt-2">
+            <div class="text-right">
               <button
                 type="button"
                 @click="removeGuest(index)"
                 v-if="multipleGuests"
-                class="add-guest-button"
+                class="add-guest-button text-sm text-red-600 hover:underline"
               >
                 Remove Guest
               </button>
             </div>
+  
+            <hr class="" />
           </div>
   
           <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <button
-              type="button"
-              @click="addGuest"
-              class="add-guest-button"
-            >
-                <span>Add {{ guests.length > 1 ? 'Another' : '' }} Guest</span>
+            <button type="button" @click="addGuest" class="add-guest-button">
+              <span>Add {{ guests.length > 1 ? 'Another' : '' }} Guest</span>
             </button>
-            <button
-              type="submit"
-              class="rsvp-button"
-            >
-                RSVP
+            <button type="submit" class="rsvp-button">
+              RSVP
             </button>
           </div>
         </form>
-        <span v-if="errorMessage" class="error-message text-center mt-4">{{ errorMessage }}</span>
+  
+        <span v-if="errorMessage" class="error-message block text-center mt-4">{{ errorMessage }}</span>
       </div>
     </div>
   </template>
@@ -88,7 +61,6 @@
   import axios from "axios";
   import { getAuthHeaders } from "../auth/auth";
   
-  // Use environment variable for API URL
   const api = import.meta.env.VITE_API_URL;
   
   const guests = reactive([
@@ -102,14 +74,12 @@
     },
   ]);
   
-  // Computed value to determine if more than one guest is present
   const multipleGuests = computed(() => guests.length > 1);
   
   const errorMessage = ref("");
 
   const emit = defineEmits(["submitted"]);
   
-  // ➕ Add another guest
   const addGuest = () => {
     guests.push({
       first_name: "",
@@ -121,7 +91,6 @@
     });
   };
   
-  // ➖ Remove guest by index
   const removeGuest = (index) => {
     guests.splice(index, 1);
   };
@@ -154,74 +123,59 @@ input,
 select,
 button,
 textarea {
-    display: block;
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.5rem;
-    font-size: 0.9em;
-    boxrder: 1px solid #FFFAF0;
-    border-radius: 0.25em;
-    color: black;
-    font-family: Mukta, sans-serif;
-    font-weight: 100;
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.25em;
+  color: black;
+  font-family: Mukta, sans-serif;
+  font-weight: 300;
 }
 
-
-input, textarea {
-    background-color: #d1d6b7;
+input,
+textarea {
+  background-color: #d1d6b7;
 }
-  
+
 button[type="button"] {
-    border: none;
-    cursor: pointer;
+  border: none;
+  cursor: pointer;
 }
 
 .add-guest-button:hover {
-    color: #FFFAF0;
+  color: #FFFAF0;
 }
 
 .rsvp-button {
-    cursor: pointer;
-    border: 1px solid black !important;
+  cursor: pointer;
+  border: 1px solid black !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
 }
 
 .rsvp-button:hover {
-    border: 1px solid #FFFAF0 !important;
-    color: #FFFAF0;
-}
-  
-.error {
-    color: red;
-}
-
-.card {
-    padding: 15px;
-    border-radius: 0.75em;
-    background-color: #eee2c1 !important;
-}
-
-.header-title {
-    font-family: Mukta,sans-serif;
-    letter-spacing: 4px;
-    font-style: normal;
-    text-transform: uppercase;
-    color: #d38d38;
-}
-
-.title {
-    font-size: 1.5em;
-    font-weight: 400;
-    color: #FFFAF0;
-    font-family: Mukta, sans-serif;
-    letter-spacing: 3px;
+  border: 1px solid #FFFAF0 !important;
+  color: #FFFAF0;
 }
 
 .error-message {
-    color: #d1d6b7;
+  color: #e53e3e;
+  font-size: 0.95rem;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 400;
+  color: #FFFAF0;
+  font-family: Mukta, sans-serif;
+  letter-spacing: 3px;
 }
 
 hr {
     margin: 0.75rem 0;
-    color: #000;
+    color: #d1d6b7;
 }
 </style>

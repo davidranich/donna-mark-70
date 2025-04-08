@@ -1,11 +1,16 @@
 <template>
-    <div class="card px-4 py-2">
-      <span v-if="header !== ''" class="header-title text-center block mb-4">
+    <div class="card px-4 py-2 sm:px-6 sm:py-4 md:px-8 md:py-6">
+      <span
+        v-if="header !== ''"
+        class="header-title text-center block mb-4 text-base sm:text-lg md:text-xl"
+      >
         <slot name="header"></slot>
       </span>
   
       <div class="card-content">
-        <div class="text-center flex flex-row justify-center gap-25 styled-body">
+        <div
+          class="text-center flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-10 styled-body text-sm sm:text-base md:text-lg"
+        >
           <slot name="body"></slot>
         </div>
       </div>
@@ -13,25 +18,25 @@
   </template>
   
   <script>
-  import EventMap from './../EventMap.vue'
+  import EventMap from "./../EventMap.vue";
   
   export default {
-    name: 'Card',
+    name: "Card",
     components: {
-      EventMap
+      EventMap,
     },
     props: {
-        header: {
-            type: String,
-            default: ""
-        }
-    }
-  }
+      header: {
+        type: String,
+        default: "",
+      },
+    },
+  };
   </script>
   
   <style scoped>
   .styled-body {
-    color: #FFFAF0;
+    color: #fffaf0;
     font-weight: 300;
     letter-spacing: 1px;
     border-radius: 0.35em;
@@ -41,13 +46,13 @@
     font-family: Mukta, sans-serif;
     letter-spacing: 5px;
     text-transform: uppercase;
-    color: #FADA7A;
+    color: #fada7a;
     font-style: normal;
     font-weight: 300;
   }
   
   .card {
     border-radius: 0.75em;
-    background-color: #B1C29E !important;
+    background-color: #b1c29e !important;
   }
   </style>

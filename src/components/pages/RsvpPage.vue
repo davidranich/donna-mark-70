@@ -87,7 +87,6 @@ const formSubmitted = ref(false);
 }
 
 .card {
-    paddixng: 15px;
     border-radius: 0.75em;
     background-color: #dadfe1;
 }

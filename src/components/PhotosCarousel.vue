@@ -9,8 +9,15 @@
 </template>
 
 <script setup>
-import 'vue3-carousel/carousel.css'
-import { Carousel, Slide } from 'vue3-carousel'
+import 'vue3-carousel/carousel.css';
+import { Carousel, Slide } from 'vue3-carousel';
+
+import img3240 from './../assets/IMG_3240.png';
+import img3242 from './../assets/IMG_3242.png';
+import img1269 from './../assets/IMG_1269.jpg';
+import img4422 from './../assets/IMG_4422.jpg';
+import img4120 from './../assets/IMG_4120.jpg';
+import img5025 from './../assets/IMG_5025.jpg';
 
 const carouselConfig = {
   itemsToShow: 1,
@@ -24,27 +31,27 @@ const carouselConfig = {
 const photos = [
     {
         'id': 1,
-        'url': 'src/assets/IMG_3240.png'
+        'url': img3240
     },
     {
         'id': 2,
-        'url': 'src/assets/IMG_3242.png'
+        'url': img3242
     },
     {
         'id': 3,
-        'url': 'src/assets/IMG_1269.jpg'
+        'url': img1269
     },
     {
         'id': 4,
-        'url': 'src/assets/IMG_4422.jpg'
+        'url': img4422
     },
     {
         'id': 5,
-        'url': 'src/assets/IMG_4120.jpg'
+        'url': img4120
     },
     {
         'id': 6,
-        'url': 'src/assets/IMG_5025.jpg'
+        'url': img5025
     }
 ];
 </script>

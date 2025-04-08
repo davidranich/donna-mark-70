@@ -77,10 +77,8 @@
                 RSVP
             </button>
           </div>
-  
-          <p v-if="successMessage" class="text-green-600 text-center mt-4">{{ successMessage }}</p>
-          <p v-if="errorMessage" class="text-red-600 text-center mt-4">{{ errorMessage }}</p>
         </form>
+        <span v-if="errorMessage" class="error-message text-center mt-4">{{ errorMessage }}</span>
       </div>
     </div>
   </template>
@@ -107,7 +105,6 @@
   // Computed value to determine if more than one guest is present
   const multipleGuests = computed(() => guests.length > 1);
   
-  const successMessage = ref("");
   const errorMessage = ref("");
 
   const emit = defineEmits(["submitted"]);
@@ -135,7 +132,6 @@
         const res = await axios.post(`${api}/api/70/rsvp`, guests, {
             headers
         });
-        successMessage.value = res.data.message || "RSVP submitted!";
         errorMessage.value = "";
         guests.splice(0, guests.length, {
             first_name: "",
@@ -149,13 +145,10 @@
         emit("submitted");
     } catch (error) {
         if (error.response && error.response.data && error.response.data.message) {
-      errorMessage.value = error.response.data.message;
-    } else {
-      errorMessage.value = "Something went wrong.";
-    }
-    successMessage.value = ""
-        // errorMessage.value = error.response?.data?.message || "Something went wrong.";
-        // successMessage.value = "";
+            errorMessage.value = error.response.data.message;
+        } else {
+            errorMessage.value = "Something went wrong.";
+        }
     }
   };
 </script>
@@ -225,6 +218,10 @@ button[type="button"] {
     color: #FFFAF0;
     font-family: Mukta, sans-serif;
     letter-spacing: 3px;
+}
+
+.error-message {
+    color: #d1d6b7;
 }
 
 hr {

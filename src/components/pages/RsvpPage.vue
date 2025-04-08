@@ -2,7 +2,7 @@
 <div class="flex flex-col items-center justify-center main-wrapper px-4 py-12">
     <img :src="logo" class="logo">
 
-    <span class="subtitle"><em>(SURPRISE)</em> 70th Birthday Party</span>
+    <span class="subtitle">70th Birthday Party</span>
 
     <div class="max-w-4xl mx-auto p-8 flex flex-row sm:flex-col gap-2">
          <!-- <img src="./../../assets/photos/IMG_4422.jpg" class="rounded shadow-xl"> -->

@@ -24,27 +24,27 @@ const carouselConfig = {
 const photos = [
     {
         'id': 1,
-        'url': 'src/assets/photos/IMG_3240.png'
+        'url': 'src/assets/IMG_3240.png'
     },
     {
         'id': 2,
-        'url': 'src/assets/photos/IMG_3242.png'
+        'url': 'src/assets/IMG_3242.png'
     },
     {
         'id': 3,
-        'url': 'src/assets/photos/IMG_1269.jpg'
+        'url': 'src/assets/IMG_1269.jpg'
     },
     {
         'id': 4,
-        'url': 'src/assets/photos/IMG_4422.jpg'
+        'url': 'src/assets/IMG_4422.jpg'
     },
     {
         'id': 5,
-        'url': 'src/assets/photos/IMG_4120.jpg'
+        'url': 'src/assets/IMG_4120.jpg'
     },
     {
         'id': 6,
-        'url': 'src/assets/photos/IMG_5025.jpg'
+        'url': 'src/assets/IMG_5025.jpg'
     }
 ];
 </script>

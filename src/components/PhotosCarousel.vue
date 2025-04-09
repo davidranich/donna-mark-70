@@ -22,6 +22,7 @@
   import img6012 from '@/assets/IMG_6012.png';
   import img9980 from '@/assets/IMG_9980.png';
   import img1558 from '@/assets/IMG_1558_3.png';
+  import img3608 from '@/assets/IMG_3608.png';
   
   const carouselConfig = {
     itemsToShow: 1,
@@ -38,7 +39,8 @@
     { id: 8, url: img6012 },
     { id: 9, url: img5025 },
     { id: 10, url: img9980 },
-    { id: 11, url: img1558 }
+    { id: 11, url: img1558 },
+    { id : 12, url: img3608 }
   ];
   </script>
   

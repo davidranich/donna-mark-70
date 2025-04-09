@@ -2,13 +2,13 @@
 <div class="flex flex-col items-center justify-center main-wrapper px-4 py-12">
     <img :src="logo" class="logo">
 
-    <span class="subtitle"><strong>(SURPRISE)</strong> 70th Birthday Party</span>
+    <span class="subtitle text-sm md:text-md"><strong>(SURPRISE)</strong> 70th Birthday Party</span>
 
     <div class="max-w-4xl w-full mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 flex flex-col gap-4 sm:gap-6">
           <PhotosCarousel />
     </div>
 
-    <div v-if="!formSubmitted" class="flex flex-col gap-5">
+    <div v-if="!formSubmitted && 1 === 25" class="flex flex-col gap-5">
         <div>
             <card>
                 <template #body>

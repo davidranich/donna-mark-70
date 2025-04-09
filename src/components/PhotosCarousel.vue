@@ -16,12 +16,12 @@
   import 'vue3-carousel/carousel.css';
   import { Carousel, Slide } from 'vue3-carousel';
   
-  import img3240 from './../assets/IMG_3240.png';
-  import img3242 from './../assets/IMG_3242.png';
-  import img1269 from './../assets/IMG_1269.jpg';
-  import img4422 from './../assets/IMG_4422.jpg';
-  import img4120 from './../assets/IMG_4120.jpg';
-  import img5025 from './../assets/IMG_5025.jpg';
+  import img4120 from '@/assets/IMG_4120.jpg';
+  import img5025 from '@/assets/IMG_5025.jpg';
+  import img6011 from '@/assets/IMG_6011.png';
+  import img6012 from '@/assets/IMG_6012.png';
+  import img9980 from '@/assets/IMG_9980.png';
+  import img1558 from '@/assets/IMG_1558_3.png';
   
   const carouselConfig = {
     itemsToShow: 1,
@@ -33,17 +33,16 @@
   };
   
   const photos = [
-    { id: 1, url: img3240 },
-    { id: 2, url: img3242 },
-    { id: 3, url: img1269 },
-    { id: 4, url: img4422 },
     { id: 5, url: img4120 },
-    { id: 6, url: img5025 }
+    { id: 7, url: img6011 },
+    { id: 8, url: img6012 },
+    { id: 9, url: img5025 },
+    { id: 10, url: img9980 },
+    { id: 11, url: img1558 }
   ];
   </script>
   
   <style scoped>
-  /* Ensures smoother transitions with various image aspect ratios */
   img {
     max-height: 400px;
     object-fit: cover;

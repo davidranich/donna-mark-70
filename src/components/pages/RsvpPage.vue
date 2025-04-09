@@ -8,7 +8,7 @@
           <PhotosCarousel />
     </div>
 
-    <div v-if="!formSubmitted && 1 === 25" class="flex flex-col gap-5">
+    <div v-if="!formSubmitted" class="flex flex-col gap-5">
         <div>
             <card>
                 <template #body>

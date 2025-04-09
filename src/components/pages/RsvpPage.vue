@@ -1,6 +1,6 @@
 <template>
 <div class="flex flex-col items-center justify-center main-wrapper px-4 py-12">
-    <img :src="logo" class="logo">
+    <a href="/"><img :src="logo" class="logo"></a>
 
     <span class="subtitle text-sm md:text-md"><strong>(SURPRISE)</strong> 70th Birthday Party</span>
 

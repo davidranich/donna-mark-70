@@ -3,7 +3,7 @@
     <a href="/"><img :src="logo" class="logo"></a>
 
     <div class="flex flex-col gap-0">
-        <span class="subtitle text-sm md:text-xl text-center subtitle-thing">(SURPRISE)</span>
+        <span class="subtitle text-sm md:text-xl text-center subtitle-surprise">(SURPRISE)</span>
         <span class="subtitle text-sm md:text-md">70th Birthday Party</span>
     </div>
 
@@ -90,7 +90,7 @@ const formSubmitted = ref(false);
     color: #B1C29E;
 }
 
-.subtitle-thing {
+.subtitle-surprise {
     color: #edaa38;
 }
 

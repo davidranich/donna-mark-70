@@ -15,7 +15,7 @@
         <div>
             <card>
                 <template #body>
-                    <div class="max-w-4xl mx-auto flex flex-row sm:flex-col gap-2 justify-center items-center">
+                    <div class="max-w-4xl p-2 mx-auto flex flex-row sm:flex-col gap-2 justify-center items-center">
                         <EventDescription />
                     </div>
                 </template>
@@ -29,7 +29,7 @@
         <div>
             <card>
                 <template #body>
-                    <div class="flex flex-row sm:flex-col gap-2">
+                    <div class="flex flex-row sm:flex-col gap-2 p-2">
                         <EventDetails />
                     </div>
                 </template>

@@ -10,7 +10,7 @@
             class="space-y-4"
           >
             <div v-if="multipleGuests" class="mb-2">
-              <h3 class="text-md sm:text-lg font-semibold text-gray-800">Guest {{ index + 1 }}</h3>
+              <h3 class="text-md sm:text-lg font-semibold text-white-100">{{ multipleGuestsLabel(index) }}</h3>
             </div>
   
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -43,7 +43,7 @@
   
           <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
             <button type="button" @click="addGuest" class="add-guest-button">
-              <span>Add {{ guests.length > 1 ? 'Another' : '' }} Guest</span>
+              <span>Add Another Guest</span>
             </button>
             <button type="submit" class="rsvp-button">
               RSVP
@@ -94,6 +94,10 @@
   const removeGuest = (index) => {
     guests.splice(index, 1);
   };
+
+  const multipleGuestsLabel = (index) => {
+    return index === 0 ? 'You' : `Guest ${index + 1}`;
+  };
   
   const submitRSVP = async () => {
     try {
@@ -139,9 +143,9 @@ textarea {
   background-color: #d1d6b7;
 }
 
-button[type="button"] {
-  border: none;
-  cursor: pointer;
+button:hover {
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .add-guest-button:hover {
@@ -170,7 +174,7 @@ button[type="button"] {
   font-size: 1.5em;
   font-weight: 400;
   color: #FFFAF0;
-  font-family: Mukta, sans-serif;
+  font-family: "Julius Sans One", sans-serif;
   letter-spacing: 3px;
 }
 

@@ -2,7 +2,10 @@
 <div class="flex flex-col items-center justify-center main-wrapper px-4 py-12">
     <a href="/"><img :src="logo" class="logo"></a>
 
-    <span class="subtitle text-sm md:text-md"><strong>(SURPRISE)</strong> 70th Birthday Party</span>
+    <div class="flex flex-col gap-0">
+        <span class="subtitle text-sm md:text-xl text-center subtitle-thing">(SURPRISE)</span>
+        <span class="subtitle text-sm md:text-md">70th Birthday Party</span>
+    </div>
 
     <div class="max-w-4xl w-full mx-auto px-4 sm:px-6 md:px-8 py-6 sm:py-8 flex flex-col gap-4 sm:gap-6">
           <PhotosCarousel />
@@ -12,21 +15,21 @@
         <div>
             <card>
                 <template #body>
-                    <div class="max-w-4xl mx-auto p-8 flex flex-row sm:flex-col gap-2 justify-center items-center" id="description">
+                    <div class="max-w-4xl mx-auto flex flex-row sm:flex-col gap-2 justify-center items-center">
                         <EventDescription />
                     </div>
                 </template>
             </card>
         </div>
 
-        <div class="max-w-4xl mx-auto p-8 flex flex-row sm:flex-col gap-2 justify-center items-center" id="map">
+        <div class="max-w-4xl mx-auto p-4 flex flex-row sm:flex-col gap-2 justify-center items-center">
             <EventMap />
         </div>
 
         <div>
             <card>
                 <template #body>
-                    <div class="maxx-w-4xl xmx-auto p-8 flex flex-row sm:flex-col gap-2 justify-cexnter items-centxer" id="details">
+                    <div class="flex flex-row sm:flex-col gap-2">
                         <EventDetails />
                     </div>
                 </template>
@@ -36,7 +39,7 @@
         <div>
             <card>
                 <template #body>
-                    <div class="max-w-4xl mx-auto p-8 flex flex-row sm:flex-col gap-2 justxify-center itxems-center" id="rsvp-form">
+                    <div class="max-w-4xl mx-auto flex flex-row sm:flex-col gap-2">
                         <RsvpForm @submitted="formSubmitted = true" />
                     </div>
                 </template>
@@ -47,7 +50,7 @@
     <div v-else>
         <card>
             <template #body>
-                <div class="max-w-4xl mx-auto p-8 flex flex-row sm:flex-col gap-2 justify-center items-center" id="description">
+                <div class="max-w-4xl mx-auto p-8 flex flex-row sm:flex-col gap-2 justify-center items-center">
                     <Confirmation />
                 </div>
             </template>
@@ -78,12 +81,17 @@ const formSubmitted = ref(false);
 }
 
 .subtitle {
-    font-family: Mukta, sans-serif;
+    fxont-family: Mukta, sans-serif;
+    font-family: "Julius Sans One", sans-serif;
     letter-spacing: 6px;
-    padding-top: 14px;
-    padding-bottom: 14px;
+    paddxing-top: 14px;
+    paddinxg-bottom: 14px;
     font-weight: 300;
     color: #B1C29E;
+}
+
+.subtitle-thing {
+    color: #edaa38;
 }
 
 .card {

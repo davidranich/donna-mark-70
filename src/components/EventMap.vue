@@ -92,7 +92,7 @@ onBeforeMount(() => {
 @media (min-width: 10rem) {
     .gmap {
     width: 80vw; 
-    height: 60vw;
+    height: 70vw;
     }
 }
 
@@ -100,7 +100,7 @@ onBeforeMount(() => {
 @media (min-width: 76rem) {
     .gmap {
     width: 80vw;
-    height: 39vw;
+    height: 70vw;
     }
 }
 

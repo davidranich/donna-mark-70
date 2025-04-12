@@ -14,7 +14,7 @@
       <span>Add To Your Calendar:</span>
       <br>
       <div class="flex flex-row justify-center center-items gap-5" style="color: black; padding-top: 10px;">
-        <a :href="icsUrl"><i class="fa-solid fa-envelope" target="_blank" style="font-size: 1.45em; color: #fff;"></i></a>
+        <a :href="icsUrl" download><i class="fa-solid fa-envelope" target="_blank" style="font-size: 1.45em; color: #fff;"></i></a>
         <a :href="googleUrl" target="_blank"><img src="./../assets/google-calendar.svg"></a>
         <a :href="yahooUrl" target="_blank"><img src="./../assets/yahoo-calendar.svg"></a>
         <a :href="outlookUrl" target="_blank"><img src="./../assets/outlook-calendar.svg"></a>

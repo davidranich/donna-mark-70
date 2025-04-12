@@ -25,7 +25,7 @@
 </template>
   
 <script setup>
-import { onMounted } from 'vue';
+import { onMounted, onBeforeMount } from 'vue';
 
 const address = "Knights of Columbus, 25003 Little Mack Ave, St Clair Shores, MI 48080";
 const encodedAddress = encodeURIComponent(address);
@@ -48,15 +48,34 @@ const venueMarker = {
     }
 };
 
-const removeElX = () => {
-    setTimeout(() => {
-        let el = document.querySelector('.gm-style-iw-chr');
-        el.style.display = 'none';
-    }, 1000);
+const removeDefaultMapControls = () => {
+    let elementsLoaded = setInterval(() => {
+        let element = document.querySelectorAll('.gm-style-iw-chr');
+        if (element.length > 0) {
+            removeMultipleElements('.gm-style-iw-chr');
+            removeMultipleElements('.gm-style-mtc');
+            removeMultipleElements('.gm-control-active');
+            removeMultipleElements('.gm-svpc');
+            clearInterval(elementsLoaded);
+        }
+    }, 500);
+};
+
+const removeMultipleElements = (elements_class) => {
+    let elementsArray = document.querySelectorAll(elements_class);
+    elementsArray.forEach(element => {
+        element.style.display = 'none';
+    });
 };
 
 onMounted(() => {
-    removeElX();
+    removeDefaultMapControls();
+    window.addEventListener('resize', removeDefaultMapControls);
+});
+
+onBeforeMount(() => {
+    removeDefaultMapControls();
+    window.addEventListener('resize', removeDefaultMapControls);
 });
 </script>
 

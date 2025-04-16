@@ -17,7 +17,7 @@
             <img class="w-20 sm:w-30 md:w-30 sm:max-w-xl md:max-w-2xl" src="https://upload.wikimedia.org/wikipedia/en/9/93/KoC_Logotype1.png">
             <span class="font-bold text-xs" style="color: #edaa38;">Knights of Columbus</span>
             <span class="map-link text-xs"><a :href="mapLink" target="_blank">25003 Little Mack Ave, St Clair Shores, MI 48080</a></span>
-            <span class="font-bold text-xs" style="color: #263876;">June 28th, 2025 @ 4:00 PM</span>
+            <span class="font-bold text-sm" style="color: #263876;">June 28th, 2025 @ 4:00 PM</span>
         </div>
     </GMapInfoWindow>
 </GMapMarker>
@@ -25,8 +25,6 @@
 </template>
   
 <script setup>
-import { onMounted, onBeforeMount } from 'vue';
-
 const address = "Knights of Columbus, 25003 Little Mack Ave, St Clair Shores, MI 48080";
 const encodedAddress = encodeURIComponent(address);
 
@@ -47,36 +45,6 @@ const venueMarker = {
         lat: venueCoordinates.lat, lng: venueCoordinates.lng
     }
 };
-
-const removeDefaultMapControls = () => {
-    let elementsLoaded = setInterval(() => {
-        let element = document.querySelectorAll('.gm-style-iw-chr');
-        if (element.length > 0) {
-            removeMultipleElements('.gm-style-iw-chr');
-            removeMultipleElements('.gm-style-mtc');
-            removeMultipleElements('.gm-control-active');
-            removeMultipleElements('.gm-svpc');
-            clearInterval(elementsLoaded);
-        }
-    }, 500);
-};
-
-const removeMultipleElements = (elements_class) => {
-    let elementsArray = document.querySelectorAll(elements_class);
-    elementsArray.forEach(element => {
-        element.style.display = 'none';
-    });
-};
-
-onMounted(() => {
-    removeDefaultMapControls();
-    window.addEventListener('resize', removeDefaultMapControls);
-});
-
-onBeforeMount(() => {
-    removeDefaultMapControls();
-    window.addEventListener('resize', removeDefaultMapControls);
-});
 </script>
 
 <style scoped>

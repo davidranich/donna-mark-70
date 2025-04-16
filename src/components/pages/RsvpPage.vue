@@ -117,11 +117,8 @@ onBeforeMount(() => {
 }
 
 .subtitle {
-    fxont-family: Mukta, sans-serif;
     font-family: "Julius Sans One", sans-serif;
     letter-spacing: 6px;
-    paddxing-top: 14px;
-    paddinxg-bottom: 14px;
     font-weight: 300;
     color: #B1C29E;
 }

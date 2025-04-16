@@ -60,7 +60,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onBeforeMount } from "vue";
 import RsvpForm from './../RsvpForm.vue';
 import EventDetails from './../EventDetails.vue';
 import EventDescription from '../EventDescription.vue';
@@ -72,6 +72,42 @@ import Card from '../utility/Card.vue';
 import logo from '@/assets/donna-mark-vintage-02-70th-transparent.png';
 
 const formSubmitted = ref(false);
+
+const removeDefaultMapControls = () => {
+    let elementsLoaded = setInterval(() => {
+        let mapControlElement1 = document.querySelectorAll('.gm-style-iw-chr');
+        let mapControlElement2 = document.querySelectorAll('.gm-style-mtc');
+        let mapControlElement3 = document.querySelectorAll('.gm-control-active');
+        let mapControlElement4 = document.querySelectorAll('.gm-svpc');
+
+        let defaultMapControlElements = [mapControlElement1, mapControlElement2, mapControlElement3, mapControlElement4];
+
+        if (defaultMapControlElements.every(element => element.length > 0)) {
+            removeMultipleElements('.gm-style-iw-chr');
+            removeMultipleElements('.gm-style-mtc');
+            removeMultipleElements('.gm-control-active');
+            removeMultipleElements('.gm-svpc');
+            clearInterval(elementsLoaded);
+        } 
+    }, 500);
+};
+
+const removeMultipleElements = (elements) => {
+    let elementsArray = document.querySelectorAll(elements);
+    elementsArray.forEach(element => {
+        element.style.display = 'none';
+    });
+};
+
+onMounted(() => {
+    removeDefaultMapControls();
+    window.addEventListener('resize', removeDefaultMapControls);
+});
+
+onBeforeMount(() => {
+    removeDefaultMapControls();
+    window.addEventListener('resize', removeDefaultMapControls);
+});
 </script>
 
 <style scoped>

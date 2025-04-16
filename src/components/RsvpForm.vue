@@ -45,7 +45,7 @@
             <button type="button" @click="addGuest" class="add-guest-button">
               <span>Add Another Guest</span>
             </button>
-            <button type="submit" class="rsvp-button">
+            <button type="submit" class="rsvp-button" :disabled="formSubmitting">
               RSVP
             </button>
           </div>
@@ -56,7 +56,7 @@
     </div>
   </template>
   
-  <script setup>
+<script setup>
   import { ref, computed, reactive } from "vue";
   import axios from "axios";
   import { getAuthHeaders } from "../auth/auth";
@@ -79,6 +79,8 @@
   const errorMessage = ref("");
 
   const emit = defineEmits(["submitted"]);
+
+  const formSubmitting = ref(false);
   
   const addGuest = () => {
     guests.push({
@@ -100,12 +102,12 @@
   };
   
   const submitRSVP = async () => {
+    formSubmitting.value = true;
     try {
         const headers = await getAuthHeaders();
         await axios.post(`${api}/api/70/rsvp`, guests, {
             headers
         }).then(response => {
-            formSubmitted = true;
         })
         .catch(error => {
             errorMessage.value = "Something went wrong! Please try again.";
@@ -120,6 +122,7 @@
                 decision: 1,
                 notes: "",
             });
+            formSubmitting.value = false;
             
             emit("submitted");
         });
@@ -170,6 +173,11 @@ button:hover {
 .rsvp-button:hover {
   border: 1px solid #FFFAF0 !important;
   color: #FFFAF0;
+}
+
+.rsvp-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 .error-message {

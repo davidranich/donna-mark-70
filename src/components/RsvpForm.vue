@@ -102,22 +102,29 @@
   const submitRSVP = async () => {
     try {
         const headers = await getAuthHeaders();
-        const res = await axios.post(`${api}/api/70/rsvp`, guests, {
+        await axios.post(`${api}/api/70/rsvp`, guests, {
             headers
+        }).then(response => {
+            formSubmitted = true;
+        })
+        .catch(error => {
+            errorMessage.value = "Something went wrong! Please try again.";
+        })
+        .finally(() => {
+            errorMessage.value = "";
+            guests.splice(0, guests.length, {
+                first_name: "",
+                last_name: "",
+                phone_number: "",
+                email: "",
+                decision: 1,
+                notes: "",
+            });
+            
+            emit("submitted");
         });
-        errorMessage.value = "";
-        guests.splice(0, guests.length, {
-            first_name: "",
-            last_name: "",
-            phone_number: "",
-            email: "",
-            decision: 1,
-            notes: "",
-        });
-
-        emit("submitted");
     } catch (error) {
-        errorMessage.value = "Something went wrong.";
+      console.log(error);
     }
   };
 </script>

@@ -1,6 +1,5 @@
 {
   "name": "70-birthday-rsvp-form",
-  "private": true,
   "version": "1.0.0",
   "type": "module",
   "scripts": {

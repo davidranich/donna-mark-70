@@ -1,11 +1,10 @@
 <template>
   <div>
-    <RsvpPage />
+    <router-view />
   </div>
 </template>
 
 <script setup>
-import RsvpPage from './components/pages/RsvpPage.vue';
 </script>
 
 <style scoped>

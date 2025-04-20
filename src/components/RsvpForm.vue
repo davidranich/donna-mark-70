@@ -14,18 +14,36 @@
             </div>
   
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <input v-model="guest.first_name" type="text" placeholder="First Name" required class="input" />
-              <input v-model="guest.last_name" type="text" placeholder="Last Name" required class="input" />
-              <input v-model="guest.phone_number" type="tel" placeholder="Phone Number" required class="input" />
-              <input v-model="guest.email" type="email" placeholder="Email Address" required class="input" />
+            <div class="flex flex-col gap-1">
+              <label class="text-sm font-medium text-gray-800 text-left">First Name</label>
+              <input v-model="guest.first_name" type="text" placeholder="e.g., John" class="input" />
             </div>
+
+            <div class="flex flex-col gap-1">
+              <label class="text-sm font-medium text-gray-800 text-left">Last Name</label>
+              <input v-model="guest.last_name" type="text" placeholder="e.g., Doe" required class="input" />
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <label class="text-sm font-medium text-gray-800 text-left">Phone Number</label>
+              <input v-model="guest.phone_number" type="tel" placeholder="e.g., 555-555-5555" required pattern="^\d{10}$|^\d{3}-\d{3}-\d{4}$" class="input" />
+            </div>
+
+            <div class="flex flex-col gap-1">
+              <label class="text-sm font-medium text-gray-800 text-left">Email Address</label>
+              <input v-model="guest.email" type="email" placeholder="e.g, john@doe.com" class="input" />
+            </div>
+          </div>
   
-            <textarea
-              v-model="guest.notes"
-              placeholder="Notes (dietary restrictions, etc.)"
-              rows="3"
-              class="input"
-            ></textarea>
+            <div class="flex flex-col gap-1 mt-4">
+              <label class="text-sm font-medium text-gray-800 text-left">Notes</label>
+              <textarea
+                v-model="guest.notes"
+                rows="3"
+                class="input"
+                placeholder="Anything you want to share?"
+              ></textarea>
+            </div>
   
             <div class="text-right">
               <button
@@ -139,7 +157,7 @@ button,
 textarea {
   display: block;
   width: 100%;
-  margin-bottom: 1rem;
+  /* margin-bottom: 1rem; */
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 0.25em;

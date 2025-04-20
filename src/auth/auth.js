@@ -1,4 +1,3 @@
-// src/utils/auth.js
 import axios from "axios";
 
 let token = null;
@@ -15,9 +14,31 @@ export const fetchApiToken = async () => {
   return token;
 };
 
-export const getAuthHeaders = async () => {
-  const currentToken = await fetchApiToken();
+export const verifyToken = async () => {
+  const token = localStorage.getItem('authToken');
+  const api = import.meta.env.VITE_API_URL;
+
+  if (!token) {
+    return false;
+  }
+  
+  try {
+    const response = await axios.get(`${api}/api/auth/verify`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    return true;
+  } catch (error) {
+    return false;
+  }
+};
+
+export const getAuthHeaders = async (currentToken = null) => {
+  let token = !currentToken ? await fetchApiToken() : currentToken;
+
   return {
-    Authorization: `Bearer ${currentToken}`,
+    Authorization: `Bearer ${token}`,
   };
 };

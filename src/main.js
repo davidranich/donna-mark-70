@@ -1,5 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
+import router from './router';
 import './style.css';
 import VueGoogleMaps from '@fawmi/vue-google-maps';
 
@@ -10,5 +11,7 @@ app.use(VueGoogleMaps, {
         key: import.meta.env.VITE_GOOGLE_MAPS_API_KEY
     },
 });
+
+app.use(router);
 
 app.mount('#app');

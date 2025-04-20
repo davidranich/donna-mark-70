@@ -16,32 +16,32 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="flex flex-col gap-1">
               <label class="text-sm font-medium text-gray-800 text-left">First Name</label>
-              <input v-model="guest.first_name" type="text" placeholder="e.g., John" class="input" />
+              <input v-model="guest.first_name" type="text" class="input" />
             </div>
 
             <div class="flex flex-col gap-1">
               <label class="text-sm font-medium text-gray-800 text-left">Last Name</label>
-              <input v-model="guest.last_name" type="text" placeholder="e.g., Doe" required class="input" />
+              <input v-model="guest.last_name" type="text" required class="input" />
             </div>
 
             <div class="flex flex-col gap-1">
               <label class="text-sm font-medium text-gray-800 text-left">Phone Number</label>
-              <input v-model="guest.phone_number" type="tel" placeholder="e.g., 555-555-5555" required pattern="^\d{10}$|^\d{3}-\d{3}-\d{4}$" class="input" />
+              <input v-model="guest.phone_number" type="tel" required pattern="^\d{10}$|^\d{3}-\d{3}-\d{4}$" class="input" />
             </div>
 
             <div class="flex flex-col gap-1">
               <label class="text-sm font-medium text-gray-800 text-left">Email Address</label>
-              <input v-model="guest.email" type="email" placeholder="e.g, john@doe.com" class="input" />
+              <input v-model="guest.email" type="email" class="input" />
             </div>
           </div>
   
             <div class="flex flex-col gap-1 mt-4">
-              <label class="text-sm font-medium text-gray-800 text-left">Notes</label>
+              <label class="text-sm font-medium text-gray-800 text-left">Anything you want to share?</label>
               <textarea
                 v-model="guest.notes"
                 rows="3"
                 class="input"
-                placeholder="Anything you want to share?"
+                placeholder=""
               ></textarea>
             </div>
   

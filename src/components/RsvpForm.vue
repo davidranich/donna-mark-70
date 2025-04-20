@@ -15,28 +15,28 @@
   
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="flex flex-col gap-1">
-              <label class="text-sm font-medium text-gray-800 text-left">First Name</label>
+              <label class="text-sm font-medium text-left">First Name</label>
               <input v-model="guest.first_name" type="text" class="input" />
             </div>
 
             <div class="flex flex-col gap-1">
-              <label class="text-sm font-medium text-gray-800 text-left">Last Name</label>
+              <label class="text-sm font-medium text-left">Last Name</label>
               <input v-model="guest.last_name" type="text" required class="input" />
             </div>
 
             <div class="flex flex-col gap-1">
-              <label class="text-sm font-medium text-gray-800 text-left">Phone Number</label>
+              <label class="text-sm font-medium text-left">Phone Number</label>
               <input v-model="guest.phone_number" type="tel" required pattern="^\d{10}$|^\d{3}-\d{3}-\d{4}$" class="input" />
             </div>
 
             <div class="flex flex-col gap-1">
-              <label class="text-sm font-medium text-gray-800 text-left">Email Address</label>
+              <label class="text-sm font-medium text-left">Email Address</label>
               <input v-model="guest.email" type="email" class="input" />
             </div>
           </div>
   
             <div class="flex flex-col gap-1 mt-4">
-              <label class="text-sm font-medium text-gray-800 text-left">Anything you want to share?</label>
+              <label class="text-sm font-medium text-left">Anything you want to share?</label>
               <textarea
                 v-model="guest.notes"
                 rows="3"
@@ -157,7 +157,6 @@ button,
 textarea {
   display: block;
   width: 100%;
-  /* margin-bottom: 1rem; */
   padding: 0.5rem;
   font-size: 1rem;
   border-radius: 0.25em;
@@ -169,6 +168,10 @@ textarea {
 input,
 textarea {
   background-color: #d1d6b7;
+}
+
+label {
+  color: black;
 }
 
 button:hover {

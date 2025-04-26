@@ -35,7 +35,6 @@ const getGuests = async () => {
       }
     })
     .then(response => {
-        //console.log(response.data);
         guests.value = response.data;
 
         emit('loaded', guests.value.length);
@@ -45,12 +44,7 @@ const getGuests = async () => {
   }
 };
 
-//getGuests();
-// console.log(guests);
-
 onMounted(() => {
-    // let guests = getGuests();
-    // console.log(guests);
     getGuests();
 });
 </script>

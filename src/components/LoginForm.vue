@@ -90,15 +90,18 @@ button:hover {
 
 .submit-button {
   cursor: pointer;
-  border: 1px solid black !important;
+
+  border: 1px solid #FFFAF0 !important;
+  color: #FFFAF0;
+  
   padding: 0.6rem 1.2rem;
   border-radius: 0.5rem;
   font-weight: 500;
 }
 
 .submit-button:hover {
-  border: 1px solid #FFFAF0 !important;
-  color: #FFFAF0;
+  border: 1px solid black !important;
+  color: black;
 }
 
 .submit-button:disabled {

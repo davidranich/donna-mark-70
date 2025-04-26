@@ -4,7 +4,7 @@
   
       <div class="p-6 bg-[#b1c29e] rounded-md shxadow-md">
         <form @submit.prevent="submitLogin" class="spxce-y-8">
-            <div class="grxid grxid-cols-1 mxd:grid-cols-2 gaxp-4">
+            <div>
                 <input v-model="email" type="text" placeholder="Email Address" required class="input" />
                 <input v-model="password" type="password" placeholder="Password" required class="input" />
             </div>
@@ -26,8 +26,7 @@
 <script setup>
   import { ref } from "vue";
   import axios from "axios";
-  import { getAuthHeaders, verifyToken } from "../auth/auth";
-  //import router from "../router";
+  import { getAuthHeaders } from "../auth/auth";
 
   import { useRouter } from "vue-router";
 
@@ -52,9 +51,6 @@ const submitLogin = async () => {
         }, headers);
   
         localStorage.setItem('authToken', response.data.token);
-
-
-        //window.location.href = '/dashboard';
         router.push('/dashboard');
     } catch (err) {
       errorMessage.value = 'Invalid credentials';

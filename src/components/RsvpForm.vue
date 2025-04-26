@@ -15,28 +15,28 @@
   
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div class="flex flex-col gap-1">
-              <label class="text-sm font-medium text-left">First Name</label>
+              <label class="text-sm font-medium text-left label-text">First Name</label>
               <input v-model="guest.first_name" type="text" class="input" />
             </div>
 
             <div class="flex flex-col gap-1">
-              <label class="text-sm font-medium text-left">Last Name</label>
+              <label class="text-sm font-medium text-left label-text">Last Name</label>
               <input v-model="guest.last_name" type="text" required class="input" />
             </div>
 
             <div class="flex flex-col gap-1">
-              <label class="text-sm font-medium text-left">Phone Number</label>
+              <label class="text-sm font-medium text-left label-text">Phone Number</label>
               <input v-model="guest.phone_number" type="tel" required pattern="^\d{10}$|^\d{3}-\d{3}-\d{4}$" class="input" />
             </div>
 
             <div class="flex flex-col gap-1">
-              <label class="text-sm font-medium text-left">Email Address</label>
+              <label class="text-sm font-medium text-left label-text">Email Address</label>
               <input v-model="guest.email" type="email" class="input" />
             </div>
           </div>
   
             <div class="flex flex-col gap-1 mt-4">
-              <label class="text-sm font-medium text-left">Anything you want to share?</label>
+              <label class="text-sm font-medium text-left label-text">Anything you want to share?</label>
               <textarea
                 v-model="guest.notes"
                 rows="3"
@@ -179,21 +179,26 @@ button:hover {
     cursor: pointer;
 }
 
-.add-guest-button:hover {
+.add-guest-button {
   color: #FFFAF0;
+}
+
+.add-guest-button:hover {
+  color: black;
 }
 
 .rsvp-button {
   cursor: pointer;
-  border: 1px solid black !important;
+  color: #FFFAF0;
+  border: 1px solid #FFFAF0 !important;
   padding: 0.6rem 1.2rem;
   border-radius: 0.5rem;
   font-weight: 500;
 }
 
 .rsvp-button:hover {
-  border: 1px solid #FFFAF0 !important;
-  color: #FFFAF0;
+  border: 1px solid black !important;
+  color: black;
 }
 
 .rsvp-button:disabled {
@@ -217,5 +222,11 @@ button:hover {
 hr {
     margin: 0.75rem 0;
     color: #d1d6b7;
+}
+
+.label-text {
+  color: #FFFAF0;
+  font-family: Mukta, sans-serif;
+  font-weight: 100;
 }
 </style>

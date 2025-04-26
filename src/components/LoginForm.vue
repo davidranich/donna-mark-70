@@ -3,7 +3,7 @@
       <span class="title block text-center text-xl sm:text-2xl lg:text-3xl mb-6">Administrator Login</span>
   
       <div class="p-6 bg-[#b1c29e] rounded-md shxadow-md">
-        <form @submit.prevent="submitLogin" class="spxce-y-8">
+        <form @submit.prevent="submitLogin">
             <div>
                 <input v-model="email" type="text" placeholder="Email Address" required class="input" />
                 <input v-model="password" type="password" placeholder="Password" required class="input" />

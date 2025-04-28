@@ -47,6 +47,11 @@ const getGuests = async () => {
 onMounted(() => {
     getGuests();
 });
+
+// give access to 'getGuests' function
+defineExpose({
+  getGuests
+});
 </script>
 
 <style scoped>

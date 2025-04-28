@@ -2,14 +2,14 @@
     <div class="px-4 py-12 sm:px-6 lg:px-20">
       <span class="title block text-center text-xl sm:text-2xl lg:text-3xl mb-6">Administrator Login</span>
   
-      <div class="p-6 bg-[#b1c29e] rounded-md shxadow-md">
+      <div class="p-6 bg-[#b1c29e] rounded-md">
         <form @submit.prevent="submitLogin">
             <div>
                 <input v-model="email" type="text" placeholder="Email Address" required class="input" />
                 <input v-model="password" type="password" placeholder="Password" required class="input" />
             </div>
 
-            <hr class="" />
+            <hr>
   
           <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
             <button type="submit" class="submit-button" :disabled="formSubmitting">
@@ -90,10 +90,8 @@ button:hover {
 
 .submit-button {
   cursor: pointer;
-
   border: 1px solid #FFFAF0 !important;
   color: #FFFAF0;
-  
   padding: 0.6rem 1.2rem;
   border-radius: 0.5rem;
   font-weight: 500;

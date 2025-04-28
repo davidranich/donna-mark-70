@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col justify-center items-center">
+    <div class="flex flex-col md:items-center">
         <a href="/"><img :src="logo" class="logo"></a>
         <div class="text-center">
             <span class="subtitle text-lg md:text-md">List Of Guests ({{ guestCount }})</span>

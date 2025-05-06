@@ -118,9 +118,20 @@
   const multipleGuestsLabel = (index) => {
     return index === 0 ? 'You' : `Guest ${index + 1}`;
   };
+
+  const trimGuestData = () => {
+    guests.forEach(guest => {
+      Object.keys(guest).forEach(key => {
+        if (typeof guest[key] === 'string') {
+          guest[key] = guest[key].trim();
+        }
+      });
+    });
+  };
   
   const submitRSVP = async () => {
     formSubmitting.value = true;
+    trimGuestData();
     try {
         const headers = await getAuthHeaders();
         await axios.post(`${api}/api/70/rsvp`, guests, {

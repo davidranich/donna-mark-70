@@ -3,6 +3,8 @@
         <DataTable
         :headers="headers"
         :data="guests"
+        title="List Of Guests"
+        @refresh="getGuests"
         />
     </div>
 </template>
@@ -11,8 +13,6 @@
 import { ref, onMounted } from 'vue';
 import DataTable from './utility/DataTable.vue';
 import axios from 'axios';
-
-const emit = defineEmits(['loaded']);
 
 const headers = [
     "First Name",

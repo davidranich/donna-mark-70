@@ -1,5 +1,6 @@
 <template>
     <div class="not-prose overflow-auto p-5 rounded-md">
+    <span class="subtitle text-lg md:text-md">{{ title }} ({{ data.length }})</span> <span id="guest-refresh" @click="refreshGuests"><i class="fa-solid fa-rotate"></i></span>
   <table class="table-auto w-full table">
   <thead class="border-b border-gray-200 p-4 pt-0 pb-3 pl-8 text-left font-medium text-gray-400 dark:border-gray-600 dark:text-gray-200">
     <tr class="table-header">
@@ -22,12 +23,54 @@
 
 <script setup>
 const props = defineProps({
-    data: Array,
-    headers: Array
+    data: {
+        type: Array,
+        default: []
+    },
+    headers: {
+        type: Array,
+        default: []
+    },
+    title: {
+        type: String,
+        default: "Data"
+    }
 });
+
+const emit = defineEmits(['refresh']);
+
+const refreshGuests = () => {
+    emit('refresh');
+};
 </script>
 
 <style scoped>
+.subtitle {
+    font-family: "Julius Sans One", sans-serif;
+    letter-spacing: 6px;
+    font-weight: 500;
+    color: #B1C29E;
+}
+
+#guest-refresh {
+    color: #f2b847;
+}
+
+.fa-rotate:hover {  
+    -webkit-animation: infinite-spinning 1s ease-out 0s infinite normal;
+    animation: infinite-spinning 1s ease-out 0s infinite normal;
+    cursor: pointer;
+}
+
+@keyframes infinite-spinning {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .table thead tr {
     background-color: #f2b847;
     color: #ffffff;

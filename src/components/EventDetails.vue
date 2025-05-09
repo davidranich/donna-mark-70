@@ -2,14 +2,18 @@
     <div>
         <div class="flex flex-col">
             <strong class="body-title-text">When</strong> <span class="body-text">Saturday, June 28, 2025</span>
+            <strong class="body-title-text">Where</strong> <span class="body-text"><a :href="mapLink" target="_blank">25003 Little Mack Ave, St Clair Shores, MI 48080</a></span>
             <strong class="body-title-text">Time</strong> <span class="body-text">4:00 PM</span>
-            <strong class="body-title-text">Provided</strong> <span class="body-text">Dinner, drinks, and dessert</span>
-            <strong class="body-title-text">Remember</strong> <span class="body-text">This is a surprise!</span>
+            <strong class="body-title-text">What's Provided</strong> <span class="body-text">Dinner, drinks, and dessert</span>
         </div>
     </div>
 </template>
       
 <script setup>
+import { formatMapLink } from './../utility/deviceDetection';
+const address = "Knights of Columbus, 25003 Little Mack Ave, St Clair Shores, MI 48080";
+
+const mapLink = formatMapLink(address);
 </script>
 
 <style scoped>

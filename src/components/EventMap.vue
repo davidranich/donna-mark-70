@@ -25,15 +25,10 @@
 </template>
   
 <script setup>
+import { formatMapLink } from './../utility/deviceDetection';
 const address = "Knights of Columbus, 25003 Little Mack Ave, St Clair Shores, MI 48080";
-const encodedAddress = encodeURIComponent(address);
 
-// detect device and pick map platform
-const isAppleDevice = /iPad|iPhone|Macintosh|Mac|iPod/.test(navigator.userAgent);
-
-const mapLink = isAppleDevice
-  ? `http://maps.apple.com/?q=${encodedAddress}`
-  : `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`;
+const mapLink = formatMapLink(address);
 
 const venueCoordinates = {
     lat: 42.47977001902156,

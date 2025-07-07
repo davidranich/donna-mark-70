@@ -11,7 +11,19 @@
           <PhotosCarousel />
     </div>
 
-    <div v-if="!formSubmitted" class="flex flex-col gap-5">
+    <div v-if="eventConcluded" class="flex flex-col gap-5">
+        <div>
+            <card>
+                <template #body>
+                    <div class="max-w-4xl p-4 mx-auto flex flex-row sm:flex-col gap-2 justify-center items-center">
+                        <ThankYou />
+                    </div>
+                </template>
+            </card>
+        </div>
+    </div>
+
+    <div v-else-if="!formSubmitted && !eventConcluded" class="flex flex-col gap-5">
         <div>
             <card>
                 <template #body>
@@ -68,9 +80,11 @@ import EventMap from '../EventMap.vue';
 import Confirmation from "../Confirmation.vue";
 import PhotosCarousel from "../PhotosCarousel.vue";
 import Card from '../utility/Card.vue';
+import ThankYou from "../ThankYou.vue";
 
 import logo from '@/assets/donna-mark-vintage-02-70th-transparent.png';
 
+const eventConcluded = import.meta.env.VITE_EVENT_CONCLUDED === 'true';
 const formSubmitted = ref(false);
 
 const removeDefaultMapControls = () => {
